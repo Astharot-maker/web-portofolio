@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — MIKAL NOVA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="admin-page">
+  <div class="bg-grid"></div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Logo MIKAL NOVA">
+      <span>MIKAL<span class="accent">//</span>NOVA</span>
+    </a>
+    <a class="back-home" href="index.html">← Website</a>
+  </header>
+
+  <main class="admin-wrap">
+    <section id="loginView" class="login-card">
+      <p class="eyebrow">ADMIN AREA</p>
+      <h1>Login Admin</h1>
+      <p class="muted">Kelola project portfolio menggunakan localStorage.</p>
+
+      <form id="loginForm">
+        <label>Username
+          <input id="username" type="text" autocomplete="username" required>
+        </label>
+        <label>Password
+          <input id="password" type="password" autocomplete="current-password" required>
+        </label>
+        <button class="btn primary full" type="submit">Masuk</button>
+        <p id="loginError" class="form-error"></p>
+      </form>
+
+      <div class="demo-login">
+        <b>Login awal:</b><br>
+        Username: <code>admin</code><br>
+        Password: <code>admin123</code>
+      </div>
+    </section>
+
+    <section id="dashboardView" class="dashboard hidden">
+      <div class="dashboard-top">
+        <div>
+          <p class="eyebrow">ADMIN DASHBOARD</p>
+          <h1>Kelola Project</h1>
+        </div>
+        <div class="dashboard-actions">
+          <a class="btn ghost" href="index.html">Lihat Website</a>
+          <button class="btn danger" id="logoutBtn">Logout</button>
+        </div>
+      </div>
+
+      <div class="admin-grid">
+        <section class="panel">
+          <div class="panel-title">
+            <h2 id="formTitle">Tambah Project</h2>
+            <button class="text-btn hidden" id="cancelEdit">Batal edit</button>
+          </div>
+
+          <form id="projectForm">
+            <input type="hidden" id="projectId">
+            <label>Judul Project
+              <input id="projectTitle" type="text" placeholder="Contoh: Website Kasir" required>
+            </label>
+            <label>Deskripsi
+              <textarea id="projectDescription" rows="5" placeholder="Deskripsi singkat project"></textarea>
+            </label>
+            <label>Link Project
+              <input id="projectUrl" type="url" placeholder="https://...">
+            </label>
+            <label>Gambar Project
+              <input id="projectImage" type="file" accept="image/*">
+            </label>
+            <div id="imagePreview" class="image-preview hidden"></div>
+            <button class="btn primary full" type="submit" id="saveBtn">Simpan Project</button>
+          </form>
+        </section>
+
+        <section class="panel">
+          <div class="panel-title">
+            <h2>Daftar Project</h2>
+            <span id="projectCount" class="count-badge">0</span>
+          </div>
+          <div id="adminProjectList" class="admin-list"></div>
+          <div id="adminEmpty" class="empty-admin hidden">
+            Belum ada project. Tambahkan project menggunakan form di sebelah kiri.
+          </div>
+        </section>
+      </div>
+
+      <section class="panel danger-zone">
+        <div>
+          <h2>Reset Data</h2>
+          <p class="muted">Menghapus semua project yang tersimpan di browser ini.</p>
+        </div>
+        <button class="btn danger" id="clearProjects">Hapus Semua Project</button>
+      </section>
+    </section>
+  </main>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
